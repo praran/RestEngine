@@ -8,7 +8,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.math.BigDecimal;
 import java.net.URI;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.UUID;
 
 import static java.lang.System.currentTimeMillis;
 
@@ -16,7 +19,7 @@ import static java.lang.System.currentTimeMillis;
  * Created by Pradeep Muralidharan.
  */
 public class TestUtils {
-    static Random random = new Random(currentTimeMillis());
+    private static Random random = new Random(currentTimeMillis());
 
     private static final String BASE_URL = "http://localhost:8181/recs/personalised";
 
@@ -87,7 +90,7 @@ public class TestUtils {
     public static boolean isRecommendationValidForPercentComplete(Recommendation r, long start){
         boolean isValid = false;
          if(r != null){
-            long val = r.start +  new BigDecimal(r.start+r.end).multiply(new BigDecimal(0.6)).longValue();
+            long val = r.start +  new BigDecimal(r.start+r.end).multiply(new BigDecimal("0.6")).longValue();
             isValid = (start < val);
          }
 

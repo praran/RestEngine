@@ -39,7 +39,7 @@ import static utils.TestUtils.isRecommendationValidForPercentComplete;
 public class RecommendationIntegrationTest {
 
 
-    RestTemplate restTemplate = new RestTemplate();
+    private RestTemplate restTemplate = new RestTemplate();
 
     @Before
     public void before() {
@@ -98,7 +98,7 @@ public class RecommendationIntegrationTest {
         assertNotNull(recommendations.recommendations);
         assertTrue(format("Should get %d%n reommendations back", num), recommendations.recommendations.size() == num);
         for(Recommendation r : recommendations.recommendations)
-            assertTrue(String.format("Recommendation %s should be relevant", r.toString()), isRecommendationValidForPercentComplete(r, start));
+            assertTrue(format("Recommendation %s should be relevant", r.toString()), isRecommendationValidForPercentComplete(r, start));
 
     }
 
@@ -120,7 +120,7 @@ public class RecommendationIntegrationTest {
         assertNotNull(recommendations.recommendations);
         assertTrue(format("Should get %d%n reommendations back", num), recommendations.recommendations.size() == num);
         for(Recommendation r : recommendations.recommendations)
-            assertTrue(String.format("Recommendation %s should be relevant", r.toString()), isRecommendationValidForPercentComplete(r, start));
+            assertTrue(format("Recommendation %s should be relevant", r.toString()), isRecommendationValidForPercentComplete(r, start));
 
     }
 

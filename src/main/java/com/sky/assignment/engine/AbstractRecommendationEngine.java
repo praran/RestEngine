@@ -12,7 +12,7 @@ import java.util.List;
  */
 public abstract class AbstractRecommendationEngine {
 
-    abstract RecFilter[] getFilters();
+    protected abstract RecFilter[] getFilters();
 
     /**
      * Provide recommendations based on the paremeters
@@ -21,9 +21,9 @@ public abstract class AbstractRecommendationEngine {
      * @param end
      * @return
      */
-    abstract Recommendations recommend(long numberOfRecs, long start, long end);
+    protected abstract Recommendations recommend(long numberOfRecs, long start, long end);
 
-    abstract RecommendationCacheService getRecommendationCacheService();
+    protected abstract RecommendationCacheService getRecommendationCacheService();
 
     /**
      * Execute filters and check if recommendations are valid
